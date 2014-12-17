@@ -104,6 +104,10 @@ class SoftDelete_Plugin {
 	
 	public static function log($label, $msg) {
 		
+		if (!SoftDelete_AdminController::getSetting('enable_logging')) {
+			return false;
+		}
+		
 		if (is_array($msg) || is_object($msg)) {
 			$msg = print_r($msg,true);
 		}

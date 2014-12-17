@@ -1,5 +1,5 @@
 /*
- * http://www.colourlovers.com/palette/3528801/Wheres_my_juice
+ * http://www.colourlovers.com/palette/3590058/1
  **/
 .soft-delete-admin-settings .clear {
 	clear: both;
@@ -22,7 +22,7 @@
 		height:40px;
 		line-height:38px;
 		border-bottom: 1px ridge #fff;
-		background: #CE8CAD;
+		background: #636981;
 		border-radius: 0px 6px 0 0;
 		margin: 0;
 	}
@@ -90,19 +90,19 @@
 }
 
 .soft-delete-admin-settings a {
-    color: #CE8CAD;
+    color: #636981;
 }
 
 .soft-delete-admin-settings blockquote {
-    border-left: 3px solid #CE8CAD;
+    border-left: 3px solid #636981;
     padding: 10px 0 10px 15px;
 }
 
 .soft-delete-admin-settings .logo {
     text-align: center;
-    padding: 230px 0 15px;
+    padding: 400px 0 15px;
     background: url('../img/logo.png') no-repeat 50% 15px;
-    color: #CE8CAD;
+    color: #636981;
     text-transform: uppercase;
     font-size: 18px;
 	display: block;
@@ -115,7 +115,7 @@
 
 .soft-delete-admin-settings .tip {
 	text-decoration: none;
-	border-bottom: 1px dotted #CE8CAD;
+	border-bottom: 1px dotted #636981;
 }
 
 

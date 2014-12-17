@@ -32,13 +32,15 @@
 									Icons &copy; <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome&nbsp;<span class="fa fa-external-link-square"></span></a>
 								</p>
 								<p>
-									Logo Icon &copy; <a href="http://thenounproject.com/term/message-notification/23246/" target="_blank">aguycalledgary&nbsp;<span class="fa fa-external-link-square"></span></a>
+									Logo Icon &copy;
+									<a href="http://thenounproject.com/term/close/15425/" target="_blank">Alex S. Lakas&nbsp;<span class="fa fa-external-link-square"></span></a> &amp;
+									<a href="http://thenounproject.com/term/pillow/1473/" target="_blank">Megan Strickland&nbsp;<span class="fa fa-external-link-square"></span></a>
 								</p>
 								<p>
 									CSS Framework &copy; <a href="http://purecss.io/" target="_blank">Pure.css&nbsp;<span class="fa fa-external-link-square"></span></a>
 								</p>
 								<p>
-									Color theme &copy; <a href="http://www.colourlovers.com/palette/3528801/Wheres_my_juice" target="_blank">superchicami&nbsp;<span class="fa fa-external-link-square"></span></a>
+									Color theme &copy; <a href="http://www.colourlovers.com/palette/3590058/1" target="_blank">cdelorey&nbsp;<span class="fa fa-external-link-square"></span></a>
 								</p>
 							</blockquote>
 						</div>
@@ -101,7 +103,7 @@
 							<legend><span class="fa fa-cogs"></span><?php _e('Main settings', SOFT_DELETE_PLUGIN)?></legend>
 							
 							<p class="pure-control-group">
-								<label for="<?php echo SOFT_DELETE_PLUGIN?>[debug]">
+								<label for="<?php echo SOFT_DELETE_PLUGIN?>[enable_logging]">
 									<span class="fa-stack">
 										<i class="fa fa-circle fa-stack-2x"></i>
 										<i class="fa fa-bell-slash fa-stack-1x fa-inverse"></i>
@@ -146,7 +148,7 @@
 						<div class="row">
 							<legend><span class="fa fa-user"></span><?php _e('Post Types', SOFT_DELETE_PLUGIN)?></legend>
 							
-							<p class="pure-control-group">
+							<div class="pure-control-group">
 								<label>
 									<span class="fa fa-trash"></span>
 									<?php _e('Post Types allowed for soft delete', SOFT_DELETE_PLUGIN)?>
@@ -172,9 +174,11 @@
 										}
 									?>
 								</ul>
-							</p>
+							</div>
 							
-							<p class="pure-control-group">
+							<hr />
+							
+							<div class="pure-control-group">
 								<label>
 									<span class="fa fa-remove"></span>
 									<?php _e('Post Types allowed for hard (permanent) delete', SOFT_DELETE_PLUGIN)?>
@@ -200,7 +204,7 @@
 										}
 									?>
 								</ul>
-							</p>
+							</div>
 
 						</div>
 					
@@ -208,7 +212,7 @@
 						<div class="row">
 							<legend><span class="fa fa-users"></span><?php _e('User Roles', SOFT_DELETE_PLUGIN)?></legend>
 							
-							<p class="pure-control-group">
+							<div class="pure-control-group">
 								<label>
 									<span class="fa fa-trash"></span>
 									<?php _e('User Roles allowed to soft delete', SOFT_DELETE_PLUGIN)?>
@@ -234,9 +238,11 @@
 										}
 									?>
 								</ul>
-							</p>
+							</div>
 							
-							<p class="pure-control-group">
+							<hr />
+							
+							<div class="pure-control-group">
 								<label>
 									<span class="fa fa-trash"></span>
 									<?php _e('User Roles allowed to soft delete', SOFT_DELETE_PLUGIN)?>
@@ -262,7 +268,7 @@
 										}
 									?>
 								</ul>
-							</p>
+							</div>
 
 						</div>
 						
