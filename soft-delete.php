@@ -39,6 +39,12 @@ function wp_soft_delete_init() {
 	if (!class_exists('SoftDelete_AdminController')) {
 		include_once(SOFT_DELETE_APPPATH.'/controllers/AdminController.php');
 	}
+	
+	if (!class_exists('SoftDelete_PostsController')) {
+		include_once(SOFT_DELETE_APPPATH.'/controllers/PostsController.php');
+	}
+	
+	SoftDelete_PostsController::init();
 
 	// assets
 		if (is_admin()) {

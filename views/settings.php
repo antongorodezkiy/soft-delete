@@ -132,7 +132,8 @@
 									<a href="#!" class="js-tip tip" title="<?php _e('', SOFT_DELETE_PLUGIN)?>"><span class="fa fa-question-circle"></span></a>
 								</label>
 								<input
-									type="checkbox"
+									type="text"
+									required="required"
 									name="<?php echo SOFT_DELETE_PLUGIN?>[soft_deleted_status]"
 									value="<?php echo SoftDelete_AdminController::getSetting('soft_deleted_status');?>"
 									/>
@@ -160,7 +161,7 @@
 													<label>
 														<input
 															type="checkbox"
-															name="<?php echo SOFT_DELETE_PLUGIN?>[types_allowed_for_soft_delete]"
+															name="<?php echo SOFT_DELETE_PLUGIN?>[types_allowed_for_soft_delete][]"
 															value="<?php echo $post_type; ?>"
 															<?php echo (in_array($post_type,$selected_post_types) ? 'checked="checked"' : '' )?>
 															/>
@@ -188,7 +189,7 @@
 													<label>
 														<input
 															type="checkbox"
-															name="<?php echo SOFT_DELETE_PLUGIN?>[types_allowed_for_hard_delete]"
+															name="<?php echo SOFT_DELETE_PLUGIN?>[types_allowed_for_hard_delete][]"
 															value="<?php echo $post_type; ?>"
 															<?php echo (in_array($post_type,$selected_post_types) ? 'checked="checked"' : '' )?>
 															/>
@@ -222,7 +223,7 @@
 													<label>
 														<input
 															type="checkbox"
-															name="<?php echo SOFT_DELETE_PLUGIN?>[roles_allowed_to_soft_delete]"
+															name="<?php echo SOFT_DELETE_PLUGIN?>[roles_allowed_to_soft_delete][]"
 															value="<?php echo $role; ?>"
 															<?php echo (in_array($role,$selected_user_roles) ? 'checked="checked"' : '' )?>
 															/>
@@ -250,7 +251,7 @@
 													<label>
 														<input
 															type="checkbox"
-															name="<?php echo SOFT_DELETE_PLUGIN?>[roles_allowed_to_hard_delete]"
+															name="<?php echo SOFT_DELETE_PLUGIN?>[roles_allowed_to_hard_delete][]"
 															value="<?php echo $role; ?>"
 															<?php echo (in_array($role,$selected_user_roles) ? 'checked="checked"' : '' )?>
 															/>

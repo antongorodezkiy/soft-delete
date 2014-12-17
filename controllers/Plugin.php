@@ -145,4 +145,8 @@ class SoftDelete_Plugin {
 		return TRUE;
 	}
 	
+	
+	
+
+	
 }
