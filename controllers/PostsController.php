@@ -5,6 +5,9 @@ class SoftDelete_PostsController {
 	public static function init() {
 		// override deletion
 			add_action('before_delete_post', array(__CLASS__, 'fake_delete_post'), 100000, 1);
+			
+		// deletion of meta for attachment
+			add_action( "delete_post_meta", array(__CLASS__, "fake_delete_meta"), 100000, 4 );
 	}
 	
 	public static function role_uses_soft_delete($current_user) {
@@ -92,6 +95,11 @@ class SoftDelete_PostsController {
 		}
 	
 		
+	}
+	
+	
+	public static function fake_delete_meta($meta_ids, $object_id, $meta_key, $_meta_value) {
+		self::fake_delete_post($object_id);
 	}
 	
 }
