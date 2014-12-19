@@ -137,6 +137,10 @@
 	width: 25em;
 }
 
+	.settings-pure-form .pure-control-group table label {
+		width: auto;
+	}
+
 .settings-pure-form .pure-control-group ul {
 	width: 25em;
 	display: inline-block;

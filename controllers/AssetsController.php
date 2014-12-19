@@ -11,6 +11,7 @@ class SoftDelete_AssetsController {
 					'purecss.grids.responsive' => '/assets/bower_components/pure/grids-responsive-min.css',
 					'purecss.grids.core' => '/assets/bower_components/pure/grids-core-min.css',
 					'purecss.forms' => '/assets/bower_components/pure/forms-min.css',
+					'purecss.tables' => '/assets/bower_components/pure/tables-min.css',
 					'font-awesome' => '/assets/bower_components/fontawesome/css/font-awesome.min.css',
 					'admin.'.SOFT_DELETE_PLUGIN => '/assets/css/admin.css'
 				);

@@ -66,9 +66,10 @@ class SoftDelete_AdminController {
 		public static function showSettings() {
 			global $wp_roles;
 			
-			$roles = $wp_roles->role_names;
+			$roles = array_merge($wp_roles->role_names, array("cron" => "Cron"));
 			$post_types = get_post_types();
 			$requirements = SoftDelete_Plugin::requirements();
+			$permissions = self::getSetting("permissions");
 			
 			include_once(SOFT_DELETE_APPPATH.'/views/settings.php');
 		}
@@ -79,15 +80,23 @@ class SoftDelete_AdminController {
 		}
 
 		public static function getSettings() {
+			global $wp_roles;
+			
 			$config = array();
 			
 			$config['enable_logging'] = 1;
 			
-			$config['types_allowed_for_soft_delete'] = array();
-			$config['types_allowed_for_hard_delete'] = get_post_types();
+			$config['permissions'] = array();
 			
-			$config['roles_allowed_to_soft_delete'] = array("administrator");
-			$config['roles_allowed_to_hard_delete'] = array("administrator");
+			$roles = array_merge($wp_roles->role_names, array("cron" => "Cron"));
+			$post_types = get_post_types();
+			foreach($post_types as $post_type) {
+				$config['permissions'][$post_type] = array();
+				foreach($roles as $role => $name) {
+					$config['permissions'][$post_type][$role] = 'p';
+				}
+			}
+														
 			
 			$config['soft_deleted_status'] = "_deleted";
 			

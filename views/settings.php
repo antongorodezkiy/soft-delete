@@ -146,132 +146,94 @@
 						
 						
 						<div class="row">
-							<legend><span class="fa fa-user"></span><?php _e('Post Types', SOFT_DELETE_PLUGIN)?></legend>
+							<legend><span class="fa fa-user"></span><?php _e('Permissions', SOFT_DELETE_PLUGIN)?></legend>
 							
 							<div class="pure-control-group">
-								<label>
-									<span class="fa fa-trash"></span>
-									<?php _e('Post Types allowed for soft delete', SOFT_DELETE_PLUGIN)?>
-									<a href="#!" class="js-tip tip" title="<?php _e('The following post types are allowed to be soft deleted', SOFT_DELETE_PLUGIN)?>"><span class="fa fa-question-circle"></span></a>
-								</label>
-								<ul>
-									<?php
-										$selected_post_types = SoftDelete_AdminController::getSetting('types_allowed_for_soft_delete');
-										foreach($post_types as $post_type) {
-											?>
-												<li>
-													<label>
-														<input
-															type="checkbox"
-															name="<?php echo SOFT_DELETE_PLUGIN?>[types_allowed_for_soft_delete][]"
-															value="<?php echo $post_type; ?>"
-															<?php echo (in_array($post_type,$selected_post_types) ? 'checked="checked"' : '' )?>
-															/>
-														<?php echo $post_type;?>
-													</label>
-												</li>
-											<?php
-										}
-									?>
-								</ul>
-							</div>
-							
-							<hr />
-							
-							<div class="pure-control-group">
-								<label>
-									<span class="fa fa-remove"></span>
-									<?php _e('Post Types allowed for hard (permanent) delete', SOFT_DELETE_PLUGIN)?>
-									<a href="#!" class="js-tip tip" title="<?php _e('The following post types are allowed to be deleted permanently', SOFT_DELETE_PLUGIN)?>"><span class="fa fa-question-circle"></span></a>
-								</label>
-								<ul>
-									<?php
-										$selected_post_types = SoftDelete_AdminController::getSetting('types_allowed_for_hard_delete');
-										foreach($post_types as $post_type) {
-											?>
-												<li>
-													<label>
-														<input
-															type="checkbox"
-															name="<?php echo SOFT_DELETE_PLUGIN?>[types_allowed_for_hard_delete][]"
-															value="<?php echo $post_type; ?>"
-															<?php echo (in_array($post_type,$selected_post_types) ? 'checked="checked"' : '' )?>
-															/>
-														<?php echo $post_type;?>
-													</label>
-												</li>
-											<?php
-										}
-									?>
-								</ul>
-							</div>
 
+								<table class="pure-table pure-table-striped">
+									<thead>
+										<tr>
+											<th>
+												<?php echo __('Type / Role', SOFT_DELETE_PLUGIN);?>
+											</th>
+											<?php
+												foreach($roles as $role => $name) {
+												?>
+													<th><?php echo $name;?></th>
+												<?php
+												}
+											?>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+											foreach($post_types as $post_type) {
+											?>
+												<tr>
+													<td>
+														<?php echo $post_type;?>
+													</td>
+													<?php
+														foreach($roles as $role => $name) {
+														?>
+															<td>
+																<label>
+																	<input
+																		type="radio"
+																		name="<?php echo SOFT_DELETE_PLUGIN?>[permissions][<?php echo $post_type; ?>][<?php echo $role; ?>]"
+																		value="s"
+																		<?php echo ($permissions[$post_type][$role] == 's' ? 'checked="checked"' : '' )?>
+																		/>
+																	<span class="fa fa-recycle"></span>
+																</label>
+																<label>
+																	<input
+																		type="radio"
+																		name="<?php echo SOFT_DELETE_PLUGIN?>[permissions][<?php echo $post_type; ?>][<?php echo $role; ?>]"
+																		value="p"
+																		<?php echo ($permissions[$post_type][$role] == 'p' ? 'checked="checked"' : '' )?>
+																		/>
+																	<span class="fa fa-trash"></span>
+																</label>
+																<label>
+																	<input
+																		type="radio"
+																		name="<?php echo SOFT_DELETE_PLUGIN?>[permissions][<?php echo $post_type; ?>][<?php echo $role; ?>]"
+																		value="d"
+																		<?php echo ($permissions[$post_type][$role] == 'd' ? 'checked="checked"' : '' )?>
+																		/>
+																	<span class="fa fa-ban"></span>
+																</label>
+															</td>
+														<?php
+														}
+													?>
+												</tr>
+											<?php
+											}
+										?>
+									</tbody>
+									<tfoot>
+										<tr>
+											<th colspan="<?php echo count($roles)+1; ?>">
+												<p>
+													<span class="fa fa-recycle"></span> - <?php echo __("Soft delete", SOFT_DELETE_PLUGIN); ?>
+												</p>
+												<p>
+													<span class="fa fa-trash"></span> - <?php echo __("Permanent delete", SOFT_DELETE_PLUGIN); ?>
+												</p>
+												<p>
+													<span class="fa fa-ban"></span> - <?php echo __("Disable delete", SOFT_DELETE_PLUGIN); ?>
+												</p>
+											</th>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+									
+							
 						</div>
 					
-					
-						<div class="row">
-							<legend><span class="fa fa-users"></span><?php _e('User Roles', SOFT_DELETE_PLUGIN)?></legend>
-							
-							<div class="pure-control-group">
-								<label>
-									<span class="fa fa-trash"></span>
-									<?php _e('User Roles allowed to soft delete', SOFT_DELETE_PLUGIN)?>
-									<a href="#!" class="js-tip tip" title="<?php _e('The following user roles are allowed to soft delete', SOFT_DELETE_PLUGIN)?>"><span class="fa fa-question-circle"></span></a>
-								</label>
-								<ul>
-									<?php
-										$selected_user_roles = SoftDelete_AdminController::getSetting('roles_allowed_to_soft_delete');
-										foreach($roles as $role => $name) {
-											?>
-												<li>
-													<label>
-														<input
-															type="checkbox"
-															name="<?php echo SOFT_DELETE_PLUGIN?>[roles_allowed_to_soft_delete][]"
-															value="<?php echo $role; ?>"
-															<?php echo (in_array($role,$selected_user_roles) ? 'checked="checked"' : '' )?>
-															/>
-														<?php echo $name;?>
-													</label>
-												</li>
-											<?php
-										}
-									?>
-								</ul>
-							</div>
-							
-							<hr />
-							
-							<div class="pure-control-group">
-								<label>
-									<span class="fa fa-trash"></span>
-									<?php _e('User Roles allowed to soft delete', SOFT_DELETE_PLUGIN)?>
-									<a href="#!" class="js-tip tip" title="<?php _e('The following user roles are allowed to soft delete', SOFT_DELETE_PLUGIN)?>"><span class="fa fa-question-circle"></span></a>
-								</label>
-								<ul>
-									<?php
-										$selected_user_roles = SoftDelete_AdminController::getSetting('roles_allowed_to_hard_delete');
-										foreach($roles as $role => $name) {
-											?>
-												<li>
-													<label>
-														<input
-															type="checkbox"
-															name="<?php echo SOFT_DELETE_PLUGIN?>[roles_allowed_to_hard_delete][]"
-															value="<?php echo $role; ?>"
-															<?php echo (in_array($role,$selected_user_roles) ? 'checked="checked"' : '' )?>
-															/>
-														<?php echo $name;?>
-													</label>
-												</li>
-											<?php
-										}
-									?>
-								</ul>
-							</div>
-
-						</div>
-						
 						
 						<p>
 							<blockquote>
