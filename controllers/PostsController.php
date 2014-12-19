@@ -153,6 +153,7 @@ class SoftDelete_PostsController {
 		if ($post->post_type == 'attachment') {
 			self::fake_delete_post($object_id);
 		}
+
 	}
 	
 }
